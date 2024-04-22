@@ -1,10 +1,31 @@
+"""Submitted by Adam Farquhar (Github: adamfarquhar)
+
+Performance
+-----------
+This implementation is only a fraction of a second slower than doug_booty4, but
+approaches the problem of reading the file in a different way.
+
+Doug Discussion
+---------------
+This submission shows a few cool things.
+
+First, I was really surprised Adam could introduce/reintroduce so many
+"creature comforts" into his implementation without affecting performance. I
+had removed the global indexing variables because I incorrectly assumed they
+would affect performance, but in practice they don't. Similarly, the helpful
+CLI doesn't appear to meaningfully affect performance.
+
+Removing the global variables or modifying Adam's revised parse_temp function
+didn't impact performance.
+
+Beyond that, it shows a neat strategy for reading the file in chunks using
+a `bytearray`. This is a nice alternative to the mmapping approach used
+by booty or the line-by-line reading used by infesi.
+"""
 import argparse
 import os
 import time
 from multiprocessing import Pool
-
-# Adam Farquhar 2021-09-30
-# Github: adamfarquhar
 
 # min, max, sum, count
 RMIN = 0
@@ -152,7 +173,7 @@ if __name__ == "__main__":
         "--input",
         type=str,
         help="Input file path.",
-        default="/workspace/data/measurements_10m.txt",
+        default="data/measurements.txt",
     )
     parser.add_argument("--output", type=str, help="Output file path", default="output.csv")
     parser.add_argument("--workers", type=int, help="Number of subprocesses", default=max(1, os.cpu_count() - 1))
