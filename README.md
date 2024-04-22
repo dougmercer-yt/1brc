@@ -11,7 +11,7 @@ This repository contains a few solutions to the 1brc implemented in Python.
 
 ## Kudos to community members
 
-* [@WouterLVV](https://github.com/WouterLVV) for [finding a 0.5s speed up by using try/catch instead of if/else in `process_line`](src/community/doug_booty4_wouter.py)
+* [@WouterLVV](https://github.com/WouterLVV) for [finding a 0.5s speed up by using try/except instead of if/else in `process_line` 🔥](src/community/doug_booty4_wouter.py)
 * [@adamfarquhar](https://github.com/adamfarquhar) for [implementing a chunk-based solution that is nearly as fast as mmap, and also showing that we don't need to throw away good software design for the sake of speed 🚀](src/community/farquhar_v6.py)
 
 ## Generating data
